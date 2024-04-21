@@ -28,7 +28,7 @@ class Menu{
         }
             
     }
-    desenha(ctx){
+    desenha(){
         ctx.fillStyle = this.cor;
         ctx.fillRect(this.x,this.y,this.larg,this.alt);
        for(var i = 0; i< this.btns.length; i++){

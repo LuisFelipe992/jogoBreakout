@@ -1,6 +1,7 @@
 //variaveis globais
 
 let menu  =new Menu(50,50,500, 500,"rgba(0,0,0,0.1)")
+let estado = new Estado(menu);
 
 //função inicial (chamada única)
 function inicia(){
@@ -15,12 +16,14 @@ function laco(){
     desenha();
 }
 
+// laço de atualização
 function atualiza(){
-    menu.atualiza();
+    estado.atualiza();
 }
 
+// laço de desenho
 function desenha(){
-    menu.desenha(ctx);
+    estado.desenha();
 }
 
 laco();
