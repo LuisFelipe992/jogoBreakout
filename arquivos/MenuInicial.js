@@ -17,12 +17,11 @@ class Menu{
         this.btns.push(new Botao(this.xBtn, this.y+110, this.larg/3, 20,"red","sair",""));
     }
     atualiza(){
-        // adiciona a função de clique
-        
-
+    
         //atualiza os botões
         for(let i = 0; i < this.btns.length; i++){
             this.btns[i].atualiza();
+            
         }
             
     }

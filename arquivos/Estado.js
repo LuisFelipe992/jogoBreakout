@@ -4,14 +4,14 @@ class Estado{
         this.menu = menu;
 
         this.objs = new Array(null,null,this.menu,null,null);
-
+        this.objs[3] = new ModoTeste();
         /*controle de estados
             this.inicio = false;     0
             this.creditos = false;   1
             this.menuInicio = true;  2
-            this.modo1               3
+            this.modo1  teste        3
             this.opcoes = false;*/
-        this.estados = new Array(false,false,true,false,false);
+        this.estados = new Array(false,false,false,true,false);
     }
 
     atualiza(){
