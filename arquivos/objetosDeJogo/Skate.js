@@ -19,9 +19,11 @@ class Skate{
 
         this.ouvinte = this.eventoMove();
     }
+
     atualiza(){
         this.move();
     }
+    
     desenha(){
         ctx.fillStyle = this.cor;
         ctx.fillRect(this.x,this.y,this.larg,this.alt);
