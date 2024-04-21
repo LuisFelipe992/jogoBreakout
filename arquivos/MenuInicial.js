@@ -9,7 +9,7 @@ class Menu{
         this.xBtn = this.x+this.larg/3
 
         // logico
-        this.clique = null;
+        this.clique = this.click();
 
         this.btns = new Array();
         this.btns.push(new Botao(this.xBtn, this.y+10, this.larg/3, 20,"green","jogar",""));
@@ -18,9 +18,7 @@ class Menu{
     }
     atualiza(){
         // adiciona a função de clique
-        if(this.clique === null){
-            this.clique = this.click();
-        }
+        
 
         //atualiza os botões
         for(let i = 0; i < this.btns.length; i++){
@@ -36,20 +34,14 @@ class Menu{
         }
     }
 
+    //adiciona o evento de cliques 
     click(){
         let canvas = window.document.querySelector("canvas");
         return canvas.addEventListener("click", (e)=>{
             for(let i = 0; i < this.btns.length; i++){
-                this.verificaClique(e.clientX,e.clientY, this.btns[i])
+                this.btns[i].click(e.clientX,e.clientY);
             }
-        })
-        
+        });
     }
-    //usado dentro do evento de clique
-    verificaClique(x,y,btn = Botao){
-        if(x >= btn.x && x<=btn.x+btn.larg){
-            if(y >= btn.y && y <= btn.y+btn.alt)
-                btn.clique = true;
-        }
-    }
+    
 }

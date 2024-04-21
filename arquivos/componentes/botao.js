@@ -27,5 +27,12 @@ class Botao{
         ctx.fillStyle = this.corTxt;
         ctx.fillText(this.txt, this.xTxt, this.yTxt);
     }
+
+    click(x,y){
+        if(x >= this.x && x<=this.x+this.larg){
+            if(y >= this.y && y <= this.y+this.alt)
+                this.clique = true; 
+        }
+    }
     
 }
