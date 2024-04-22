@@ -4,22 +4,29 @@ class Bola{
         this.y = y;
         this.diam = diam;
         this.r = this.diam;
+        //controle de movimento
+        this.e = true;
+        this.d = false;
+        this.c = true;
+        this.b = false;
+
         //velocidade
-        this.aleatorio = Math.random();
-        this.velx = 3*((this.aleatorio < 0.5)? -1: 1);
-        this.aleatorio = Math.random();
-        this.vely = 3*((this.aleatorio < 0.5)? -1: 1);
+        this.velx = 3;
+        this.vely = 3;
+
+        
     }
     
     atualiza(corpo){
         this.colide(corpo);
-        
+        this.move(this.velx,this.vely)
         this.x+=this.velx;
         this.y+=this.vely;  
     }
+
     desenha(){
         ctx.fillStyle = "green";
-        ctx.beginPath()
+        ctx.beginPath();
         ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false);
         ctx.fill();
     }
@@ -34,23 +41,27 @@ class Bola{
                 // pela esqueda
                 if(this.x <= colisor.x){
                     this.x = colisor.x - this.r;
-                    this.velx*=-1
+                    this.e = true;
+                    this.d = false;
                 }
                 //colide pela direita
                 else if(this.x >= colisor.x + colisor.larg){
                     this.x = colisor.x+colisor.larg+this.r;
-                    this.velx*=-1
+                    this.d = true;
+                    this.e = false;
                 }
                 //colide por cima
                 if(this.y <= colisor.y){
                     this.y = colisor.y-this.r;
-                    this.vely*=-1
+                    this.c = true;
+                    this.b  =false;
                      
                 }
                 //colide por baixo
                 else if(this.y >= colisor.y + colisor.alt){
                     this.y = colisor.y+colisor.alt+this.r;
-                    this.vely*=-1
+                    this.c = false;
+                    this.b = true;
                 }
                 
             }
@@ -59,7 +70,16 @@ class Bola{
         
         
     }
-    colisao(colisor){
-        
+    move(vx,vy){
+        if(this.e){
+            this.velx = -Math.abs(vx);
+        }else if(this.d){
+            this.velx = Math.abs(vx);
+        }
+        if(this.c){
+            this.vely = -Math.abs(vy);
+        }else if(this.b){
+            this.vely = Math.abs(vy);
+        }
     }
 }
