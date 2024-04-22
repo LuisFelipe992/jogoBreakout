@@ -3,6 +3,7 @@ class Bola{
         this.x = x;
         this.y = y;
         this.diam = diam;
+        this.r = this.diam;
         //velocidade
         this.aleatorio = Math.random();
         this.velx = 3*((this.aleatorio < 0.5)? -1: 1);
@@ -18,30 +19,47 @@ class Bola{
     }
     desenha(){
         ctx.fillStyle = "green";
-        ctx.fillRect(this.x,this.y,this.diam,this.diam);
+        ctx.beginPath()
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false);
+        ctx.fill();
     }
     colide(corp){
         //variavel centro
-        let c = this.diam/2;
         
         
         for(let i = 0; i < corp.length; i++){
-            let corpo = corp[i];
-            //colidiu em X
-            if(this.x < corpo.x+corpo.larg && this.x+this.diam > corpo.x){
-                // colide em Y
-                if(this.y < corpo.y+corpo.alt && this.y+this.diam > corpo.y){
-                    //alterra velocidade em x
-                    console.log("colidiu")
-                    if(this.x+c <= corpo.x || this.x+c >= corpo.x+corpo.larg){
-                        this.velx*= -1;
-                    }
-                    if(this.y+c <= corpo.y || this.y+c >= corpo.y+corpo.alt){
-                        this.vely*= -1;
-                    }
+            let colisor = corp[i];
+
+            if((this.x + this.r >= colisor.x) && (this.x - this.r <= colisor.x + colisor.larg) && (this.y + this.r >= colisor.y) && (this.y - this.r <= colisor.y + colisor.alt)){
+                // pela esqueda
+                if(this.x <= colisor.x){
+                    this.x = colisor.x - this.r;
+                    this.velx*=-1
                 }
+                //colide pela direita
+                else if(this.x >= colisor.x + colisor.larg){
+                    this.x = colisor.x+colisor.larg+this.r;
+                    this.velx*=-1
+                }
+                //colide por cima
+                if(this.y <= colisor.y){
+                    this.y = colisor.y-this.r;
+                    this.vely*=-1
+                     
+                }
+                //colide por baixo
+                else if(this.y >= colisor.y + colisor.alt){
+                    this.y = colisor.y+colisor.alt+this.r;
+                    this.vely*=-1
+                }
+                
             }
+            
         }
+        
+        
+    }
+    colisao(colisor){
         
     }
 }
