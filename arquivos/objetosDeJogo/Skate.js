@@ -1,13 +1,20 @@
 class Skate{
-    constructor(x,y,larg,alt){
+    constructor(x,y,larg,alt,sprite){
         this.x = x;
         this.y = y;
-        this.larg = larg;
-        this.alt = alt;
+        this.larg = 198;
+        this.alt = 42;
         this.cor = "red"
         //controles
         this.e =false;
         this.d = false;
+
+        //sprites
+        this.img = sprite;
+        this.imgx= 861;
+        this.imgy= 895;
+        this.imglarg = 198;
+        this.imgalt = 42;
 
         this.controles = {
             e: "a",
@@ -15,7 +22,7 @@ class Skate{
         }
 
         //velocidade
-        this.vel = 5;
+        this.vel = 8;
 
         this.ouvinte = this.eventoMove();
     }
@@ -26,7 +33,8 @@ class Skate{
     
     desenha(){
         ctx.fillStyle = this.cor;
-        ctx.fillRect(this.x,this.y,this.larg,this.alt);
+        //ctx.fillRect(this.x,this.y,this.larg,this.alt);
+        ctx.drawImage(this.img,this.imgx,this.imgy,this.imglarg,this.imgalt,this.x,this.y,this.larg,this.alt);
     }
     move(){
         // se anda para a esquerda

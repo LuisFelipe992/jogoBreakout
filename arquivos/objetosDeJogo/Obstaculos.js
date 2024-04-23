@@ -6,10 +6,9 @@ class Obstaculo{
         this.alt  = alt;
         this.cor = cor;
         // suporte de colisoes
-        this.colisao = 1;
     }
     atualiza(){
-
+        
     }
     desenha(){
         ctx.fillStyle = this.cor;

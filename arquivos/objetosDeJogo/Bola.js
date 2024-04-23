@@ -11,14 +11,13 @@ class Bola{
         this.b = false;
 
         //velocidade
-        this.velx = 3;
-        this.vely = 3;
+        this.velx = 5;
+        this.vely = 5;
 
         //imagens
-        this.imagem = new Image();
-        this.imagem.src = caminhho;
-
+        this.imagem = caminhho;
         
+
     }
     
     atualiza(corpo){
