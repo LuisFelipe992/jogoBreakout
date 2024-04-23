@@ -12,8 +12,8 @@ class ModoTeste{
         this.jogadores.push(new Skate(100,480,30,15));
 
         
-        for(let i = 0; i<20; i++){
-            this.bolas.push(new Bola(100+20*i,200+15*i,10));
+        for(let i = 0; i<30; i++){
+            this.bolas.push(new Bola(100+20*i,200+15*i,10,"arquivos/sprites/principal.png"));
         }
     }
 

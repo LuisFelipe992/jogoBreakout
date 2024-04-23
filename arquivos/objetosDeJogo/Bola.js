@@ -1,9 +1,9 @@
 class Bola{
-    constructor(x,y,diam){
+    constructor(x,y,diam,caminhho){
         this.x = x;
         this.y = y;
-        this.diam = diam;
-        this.r = this.diam;
+        this.diam = 34;
+        this.r = this.diam/2;
         //controle de movimento
         this.e = true;
         this.d = false;
@@ -14,6 +14,10 @@ class Bola{
         this.velx = 3;
         this.vely = 3;
 
+        //imagens
+        this.imagem = new Image();
+        this.imagem.src = caminhho;
+
         
     }
     
@@ -23,12 +27,13 @@ class Bola{
         this.x+=this.velx;
         this.y+=this.vely;  
     }
-
+    //943 844
     desenha(){
         ctx.fillStyle = "green";
         ctx.beginPath();
         ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false);
         ctx.fill();
+        ctx.drawImage(this.imagem,943,844,34,34,this.x-this.r,this.y-this.r,34,34)
     }
     colide(corp){
         //variavel centro
