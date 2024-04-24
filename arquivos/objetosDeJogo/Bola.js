@@ -28,11 +28,18 @@ class Bola{
     }
     //943 844
     desenha(){
+        ctx.shadowColor = "yellow";
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 45;
+        ctx.shadowColor = "transparent";
+
         ctx.fillStyle = "green";
         ctx.beginPath();
         ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false);
         ctx.fill();
         ctx.drawImage(this.imagem,943,844,34,34,this.x-this.r,this.y-this.r,34,34)
+        
     }
     colide(corp){
         //variavel centro

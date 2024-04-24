@@ -22,7 +22,7 @@ class Skate{
         }
 
         //velocidade
-        this.vel = 8;
+        this.vel = 12;
 
         this.ouvinte = this.eventoMove();
     }
@@ -32,9 +32,11 @@ class Skate{
     }
     
     desenha(){
+        
         ctx.fillStyle = this.cor;
         //ctx.fillRect(this.x,this.y,this.larg,this.alt);
         ctx.drawImage(this.img,this.imgx,this.imgy,this.imglarg,this.imgalt,this.x,this.y,this.larg,this.alt);
+        
     }
     move(){
         // se anda para a esquerda
@@ -43,7 +45,7 @@ class Skate{
         }
         //se anda para a direita
         else if(this.d){
-            this.x = (this.x+this.larg<700)? this.x+this.vel : 700-this.larg;
+            this.x = (this.x+this.larg<canvas.width)? this.x+this.vel : canvas.width-this.larg;
         }
     }
 
