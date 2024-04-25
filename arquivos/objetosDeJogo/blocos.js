@@ -8,19 +8,26 @@ class Bloco extends Obstaculo{
         this.alt = 38;
 
         this.vidas = qualsprt;//se zero (0), colidiu sumiu
-
+        this.tag = "bloco"; //identifica objeto
         //para as sprites
         this.imgx = 912;
         this.imgy = 304;
         if(this.sprt == 1){
-            this.imgx = 646;
+            this.imgx =1254 ;
         }else if(this.sprt == 2){
-            this.imgx = 1254;
+            this.imgx = 646;
         }
 
     }
     desenha(){
         ctx.drawImage(this.img,this.imgx,this.imgy,this.larg,this.alt,this.x,this.y,this.larg,this.alt);
     }
-    
+    destroi(){
+        if(this.vidas == 0){
+            delete this;
+        }else{
+            this.vidas--;
+        }
+            
+    }
 }

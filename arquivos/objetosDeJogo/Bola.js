@@ -1,3 +1,4 @@
+//classe bola
 class Bola{
     constructor(x,y,diam,caminhho){
         this.x = x;
@@ -42,12 +43,10 @@ class Bola{
         
     }
     colide(corp){
-        //variavel centro
-        
         
         for(let i = 0; i < corp.length; i++){
             let colisor = corp[i];
-
+            //verifica se o objeto entrou em contato
             if((this.x + this.r >= colisor.x) && (this.x - this.r <= colisor.x + colisor.larg) && (this.y + this.r >= colisor.y) && (this.y - this.r <= colisor.y + colisor.alt)){
                 // pela esqueda
                 if(this.x <= colisor.x){
@@ -74,6 +73,7 @@ class Bola{
                     this.c = false;
                     this.b = true;
                 }
+                this.destroi(colisor,corp,i)
                 
             }
             
@@ -91,6 +91,14 @@ class Bola{
             this.vely = -Math.abs(vy);
         }else if(this.b){
             this.vely = Math.abs(vy);
+        }
+    }
+    //destroi um elemento dentro de um array
+    destroi(colisor,corp=Array,i){
+        if(colisor.tag == "bloco"){
+            if(colisor.vidas == 0)
+                corp.splice(i,1);
+            colisor.destroi();
         }
     }
 }

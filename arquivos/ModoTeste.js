@@ -7,6 +7,18 @@ class ModoTeste{
         this.obs = new Array();
         this.blocos = new Array();
 
+        this.posi = new Array(
+            {x:1,y:5},
+            {x:3,y:5},
+            {x:5,y:5},
+            {x:7,y:5},
+            {x:9,y:5},{x:1,y:8},
+            {x:3,y:8},
+            {x:5,y:8},
+            {x:7,y:8},
+            {x:9,y:8})
+        
+
         this.obs.push(new Parede(40,40,46,1092,224,0,46,1092,this.sprites))
         this.obs.push(new Parede(86,40,1380,41,270,0,1380,41,this.sprites))
         this.obs.push(new Parede(1421,40,46,1092,1650,0,46,1082,this.sprites))
@@ -15,7 +27,7 @@ class ModoTeste{
         this.jogadores.push(new Skate(100,480,30,15,this.sprites));
         
         // defina limite de i para setar a quantidade de bolas
-        for(let i = 0; i<5; i++){
+        for(let i = 0; i<1; i++){
             this.bolas.push(new Bola(130+20*i,200+15*i,10,this.sprites));
         }
 
@@ -29,6 +41,9 @@ class ModoTeste{
         this.grad.addColorStop(0,"blue");
         this.grad.addColorStop(1,"#000");
 
+        //layout
+        this.layer = new Grade(50,50,76,38,this.blocos,this.posi)
+        this.layer.atualiza();
     }
 
     atualiza(){
