@@ -6,15 +6,15 @@ class Menu{
         this.alt = alt;
         this.cor = cor;
         //botoes
-        this.xBtn = this.x+this.larg/3
+        
 
         // logico
         this.clique = this.click();
 
         this.btns = new Array();
-        this.btns.push(new Botao(this.xBtn, this.y+10, this.larg/3, 20,"green","jogar",""));
-        this.btns.push(new Botao(this.xBtn, this.y+60, this.larg/3, 20,"green","opções",""));
-        this.btns.push(new Botao(this.xBtn, this.y+110, this.larg/3, 20,"red","sair",""));
+        this.btns.push(new Botao(10, this.y, this.larg/4, 20,"green","jogar",""));
+        this.btns.push(new Botao(this.larg/4+15, this.y, this.larg/4, 20,"green","opções",""));
+        this.btns.push(new Botao(this.larg-this.larg/4*2+20, this.y, this.larg/4, 20,"red","sair",""));
     }
     atualiza(){
     

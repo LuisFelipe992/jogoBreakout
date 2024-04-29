@@ -7,18 +7,6 @@ class ModoTeste{
         this.obs = new Array();
         this.blocos = new Array();
 
-        this.posi = new Array(
-            {x:1,y:5},
-            {x:3,y:5},
-            {x:5,y:5},
-            {x:7,y:5},
-            {x:9,y:5},{x:1,y:8},
-            {x:3,y:8},
-            {x:5,y:8},
-            {x:7,y:8},
-            {x:9,y:8})
-        
-
         this.obs.push(new Parede(40,40,46,1092,224,0,46,1092,this.sprites))
         this.obs.push(new Parede(86,40,1380,41,270,0,1380,41,this.sprites))
         this.obs.push(new Parede(1421,40,46,1092,1650,0,46,1082,this.sprites))
@@ -32,7 +20,7 @@ class ModoTeste{
         }
 
         // defina limite de i para setar a quantidade de blocos
-        for(let i = 0; i<10; i++){
+        for(let i = 0; i<15; i++){
             this.blocos.push(new Bloco(100+i*80,150,0,0,"",this.sprites,0   ));
         }
 
@@ -42,8 +30,8 @@ class ModoTeste{
         this.grad.addColorStop(1,"#000");
 
         //layout
-        this.layer = new Grade(50,50,76,38,this.blocos,this.posi)
-        this.layer.atualiza();
+        this.layer = new Grade(50,50,76,38);
+        this.layer.posicionaAuto(this.blocos,3);
     }
 
     atualiza(){

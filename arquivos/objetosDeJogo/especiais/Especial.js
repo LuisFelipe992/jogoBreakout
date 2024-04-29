@@ -12,10 +12,20 @@ class Especial{
         this.imglarg = imglarg;
         this.imgalt = imgalt;
     }
-    atualiza(){
-        
-    }
+
     desenha(){
         ctx.drawImage(this.img,this.imgx,this.imgy,this.imglarg,this.imgalt,this.x,this.y,this.larg,this.alt);
+    }
+    colide(corp=Array,bolas = Array){
+        for(let i = 0; i < corp.length; i++){
+            //colisao em x
+            if(this.x+this.larg > corp[i].x && this.x < corp[i].x+corp[i].larg){
+                //colisao em y
+                if(this.y+this.alt > corp[i].y && this.y < corp[i].y+corp[i].alt){
+                    //...
+                    
+                }
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ class Estado{
             this.menuInicio = true;  2
             this.modo1  teste        3
             this.opcoes = false;*/
-        this.estados = new Array(false,false,false,true,false);
+        this.estados = new Array(false,false,true,false,false);
     }
 
     atualiza(){

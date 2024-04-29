@@ -4,6 +4,9 @@ class MaisBola extends Especial{
         
     }
     atualiza(){
-        
+        this.y+=this.vel;
+    }
+    addBola(bolas=Array){
+        bolas.push(new Bola())
     }
 }

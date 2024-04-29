@@ -1,18 +1,24 @@
 //organiza elementos visuais
 class Grade{
-    constructor(iniciox, inicioy, celulalarg,celulaalt,obj=Array,posi = Array){
+    constructor(iniciox, inicioy, celulalarg,celulaalt){
         this.x = iniciox;
         this.y = inicioy;
         this.larg = celulalarg;
         this.alt  = celulaalt;
 
-        this.obj = obj;
-        this.posi = posi;//deve ser um array de obj com tupla(x,y)
+        
     }
-    atualiza(){
-        for(var i = 0; i<this.obj.length; i++){
-            this.obj[i].x = this.x+this.posi[i].x*this.larg;
-            this.obj[i].y = this.y+this.posi[i].y*this.alt;
+    posiciona(obj,posi){
+        for(var i = 0; i<obj.length; i++){
+            obj[i].x = this.x+posi[i].x*this.larg;
+            obj[i].y = this.y+posi[i].y*this.alt;
         }
     }
+    posicionaAuto(obj,line){
+        for(var i = 0; i<obj.length; i++){
+            obj[i].x = this.x+i*this.larg;
+            obj[i].y = this.y+line*this.alt;
+        }
+    }
+    
 }
