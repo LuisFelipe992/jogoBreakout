@@ -5,13 +5,15 @@ class Estado{
 
         this.objs = new Array(null,null,this.menu,null,null);
         this.objs[3] = new ModoTeste();
+        this.objs[4] = new Fase01();
         /*controle de estados
             this.inicio = false;     0
             this.creditos = false;   1
             this.menuInicio = true;  2
             this.modo1  teste        3
+            this.fase01              4
             this.opcoes = false;*/
-        this.estados = new Array(false,false,true,false,false);
+        this.estados = new Array(false,false,false,false,true);
     }
 
     atualiza(){

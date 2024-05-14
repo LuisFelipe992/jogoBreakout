@@ -6,17 +6,18 @@ class ModoTeste{
         this.bolas = new Array();
         this.obs = new Array();
         this.blocos = new Array();
+        this.especiais = new Array();
 
-        this.obs.push(new Parede(40,40,46,1092,224,0,46,1092,this.sprites))
-        this.obs.push(new Parede(86,40,1380,41,270,0,1380,41,this.sprites))
-        this.obs.push(new Parede(1421,40,46,1092,1650,0,46,1082,this.sprites))
+        this.obs.push(new Parede(224,40,46,1092,224,0,46,1092,this.sprites))
+        this.obs.push(new Parede(270,40,1380,41,270,0,1380,41,this.sprites))
+        this.obs.push(new Parede(1645,40,46,1092,1650,0,46,1082,this.sprites))
         this.obs.push(new Obstaculo(0,canvas.height,2000,40,"gray"))
 
-        this.jogadores.push(new Skate(100,480,30,15,this.sprites));
+        this.jogadores.push(new Skate(this.obs[2].x/2,canvas.height-100,30,15,this.sprites));
         
         // defina limite de i para setar a quantidade de bolas
         for(let i = 0; i<1; i++){
-            this.bolas.push(new Bola(130+20*i,200+15*i,10,this.sprites));
+            this.bolas.push(new Bola(330+20*i,200+15*i,10,this.sprites));
         }
 
         // defina limite de i para setar a quantidade de blocos
@@ -30,7 +31,7 @@ class ModoTeste{
         this.grad.addColorStop(1,"#000");
 
         //layout
-        this.layer = new Grade(50,50,76,38);
+        this.layer = new Grade(245,50,76,38);
         this.layer.posicionaAuto(this.blocos,3);
     }
 
