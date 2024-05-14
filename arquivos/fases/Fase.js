@@ -12,6 +12,8 @@ class Fase{
         this.obs = new Array();
         //blocos
         this.blocos = new Array();
+        // quantidade de blocos
+        this.qtdeBlocos = 0;
         //icones especiais
         this.especiais = new Array();
 
@@ -50,6 +52,9 @@ class Fase{
         for(let i = 0; i < this.bolas.length; i++){
             this.bolas[i].colide(this.blocos);
         }
+
+        // atualizando os especiais
+        this.atualizaObj(this.especiais);
     }
 
     desenha(){
@@ -64,6 +69,9 @@ class Fase{
         
         // desenhando os Blocos
         this.desenhaObj(this.blocos);
+
+        // desenhando os especiais
+        this.desenhaObj(this.especiais);
 
         // desenhando o HUD
         this.hud.desenha();

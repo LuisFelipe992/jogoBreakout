@@ -21,10 +21,21 @@ class Fase01 extends Fase{
             {x:17, y:7},
             {x:18, y:7},
             {x:19, y:7},
-        
         );
 
         
         this.layer1.posiciona(this.blocos,this.posi)
+
+        //contando a quantidade de blocos
+        this.qtdeBlocos = this.blocos.length;
+    }
+    atualiza(){
+        super.atualiza();
+
+        // Adicionando os especiais
+        if(this.qtdeBlocos > this.blocos.length){
+            this.qtdeBlocos = this.blocos.length;
+            this.especiais.push(new MaisBola(this.bolas[0].x,this.bolas[0].y,this.sprites,this.bolas,this.jogadores));
+        }
     }
 }

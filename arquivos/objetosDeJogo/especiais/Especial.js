@@ -4,6 +4,7 @@ class Especial{
         this.y = y;
         this.larg = larg;
         this.alt = alt;
+        this.pode = true;
 
         this.vel = 2;//velocidade de queda
         this.img = img;
@@ -21,9 +22,10 @@ class Especial{
             //colisao em x
             if(this.x+this.larg > corp[i].x && this.x < corp[i].x+corp[i].larg){
                 //colisao em y
-                if(this.y+this.alt > corp[i].y && this.y < corp[i].y+corp[i].alt){
+                if(this.y+this.alt > corp[i].y && this.y < corp[i].y+corp[i].alt && this.pode){
                     //...
-                    
+                    bolas.push(new Bola(bolas[0].x+20,bolas[0].y,15,this.img));
+                    this.pode = false;
                 }
             }
         }
